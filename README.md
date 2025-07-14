@@ -68,5 +68,5 @@ To modify the dashboard:
 - Visual rendering issues: Check for filters that might be hiding data
 
 
-<a href="https://example.com](https://app.powerbi.com/view?r=eyJrIjoiYTYyMGQ3MjctOWE2OS00MWEzLWJkYjktZmU5MzI0M2I3N2EyIiwidCI6IjE2NzAxMjgxLTZmNTQtNDE4OC1iNTY0LTIyMDNkYjBkMzM5YiJ9">View report online</a>
+<a href="https://app.powerbi.com/view?r=eyJrIjoiYTYyMGQ3MjctOWE2OS00MWEzLWJkYjktZmU5MzI0M2I3N2EyIiwidCI6IjE2NzAxMjgxLTZmNTQtNDE4OC1iNTY0LTIyMDNkYjBkMzM5YiJ9">View report online</a>
 
