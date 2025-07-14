@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "38eab8c37affd864523a",
+  "name": "bdb266ccfb3c9250af6b",
   "position": {
-    "x": 752,
-    "y": 224,
-    "z": 12003,
-    "height": 240,
+    "x": 208,
+    "y": 512,
+    "z": 18001,
+    "height": 160,
     "width": 480,
-    "tabOrder": 10003
+    "tabOrder": 10009
   },
   "visual": {
     "visualType": "shapeMap",
@@ -144,21 +144,6 @@
                       }
                     }
                   }
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Total Loan Applications by Address State'"
                 }
               }
             }

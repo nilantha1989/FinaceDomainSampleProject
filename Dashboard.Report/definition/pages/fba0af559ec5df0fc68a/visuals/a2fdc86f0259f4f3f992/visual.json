@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "2fa5cc68b1642a05e488",
+  "name": "a2fdc86f0259f4f3f992",
   "position": {
-    "x": 208,
-    "y": 272,
-    "z": 13000,
-    "height": 192,
+    "x": 752,
+    "y": 224,
+    "z": 16000,
+    "height": 448,
     "width": 480,
-    "tabOrder": 10000
+    "tabOrder": 10005
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,35 +20,21 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Date Table"
+                      "Entity": "financial_loan"
                     }
                   },
-                  "Property": "Month"
+                  "Property": "emp_length"
                 }
               },
-              "queryRef": "Date Table.Month",
-              "nativeQueryRef": "Month",
-              "active": true
+              "queryRef": "financial_loan.emp_length",
+              "nativeQueryRef": "Applicant Work Experience ",
+              "active": true,
+              "displayName": "Applicant Work Experience "
             }
           ]
         },
         "Series": {
-          "projections": [],
-          "fieldParameters": [
-            {
-              "parameterExpr": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Select"
-                    }
-                  },
-                  "Property": "Select"
-                }
-              },
-              "index": 0
-            }
-          ]
+          "projections": []
         },
         "Y": {
           "projections": [
@@ -90,18 +76,19 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Date Table"
+                    "Entity": "financial_loan"
                   }
                 },
-                "Property": "Month"
+                "Property": "Total Loan Applications"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -111,14 +98,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1000000D"
+                  "Value": "true"
                 }
               }
             }

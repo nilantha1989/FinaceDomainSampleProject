@@ -4,7 +4,7 @@
   "position": {
     "x": 208,
     "y": 224,
-    "z": 12001,
+    "z": 14000,
     "height": 48,
     "width": 464,
     "tabOrder": 10001
@@ -198,14 +198,26 @@
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "9D"
                 }
               }
             },
             "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
