@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "888eb5884ceb36921b55",
+  "name": "1dab5d607cb9f970e1cd",
   "position": {
     "x": 9,
-    "y": 332.99999999995521,
-    "z": 15000,
+    "y": 528,
+    "z": 10000,
     "height": 64,
     "width": 160,
-    "tabOrder": 13000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "slicer",
@@ -23,11 +23,11 @@
                       "Entity": "financial_loan"
                     }
                   },
-                  "Property": "purpose"
+                  "Property": "grade"
                 }
               },
-              "queryRef": "financial_loan.purpose",
-              "nativeQueryRef": "purpose",
+              "queryRef": "financial_loan.grade",
+              "nativeQueryRef": "grade",
               "active": true
             }
           ]
@@ -67,7 +67,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Purpose'"
+                  "Value": "'Grade'"
                 }
               }
             },
@@ -133,7 +133,7 @@
                                   "Source": "f"
                                 }
                               },
-                              "Property": "purpose"
+                              "Property": "grade"
                             }
                           }
                         ],
@@ -141,7 +141,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'home improvement'"
+                                "Value": "'E'"
                               }
                             }
                           ]

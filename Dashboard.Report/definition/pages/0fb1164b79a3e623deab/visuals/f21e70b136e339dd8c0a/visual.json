@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "9cb739c00f7a740a9904",
+  "name": "f21e70b136e339dd8c0a",
   "position": {
-    "x": 736,
-    "y": 208,
-    "z": 15000,
-    "height": 480,
-    "width": 512,
-    "tabOrder": 12000
+    "x": 176,
+    "y": 64,
+    "z": 1000,
+    "height": 640,
+    "width": 1088,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "shape",
@@ -54,7 +54,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 0,
-                      "Percent": 0
+                      "Percent": -0.1
                     }
                   }
                 }
@@ -63,6 +63,34 @@
           },
           "selector": {
             "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

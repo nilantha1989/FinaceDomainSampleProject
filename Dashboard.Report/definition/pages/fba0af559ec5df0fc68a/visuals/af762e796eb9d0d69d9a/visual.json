@@ -3,11 +3,11 @@
   "name": "af762e796eb9d0d69d9a",
   "position": {
     "x": 208,
-    "y": 224,
+    "y": 211,
     "z": 14000,
     "height": 48,
     "width": 464,
-    "tabOrder": 10001
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "slicer",
@@ -108,7 +108,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''financial_loan''[Total Loan Applications]'"
+                                "Value": "'''financial_loan''[Total Amount Received]'"
                               }
                             }
                           ]
@@ -136,7 +136,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''financial_loan''[Total Loan Applications]'"
+                                      "Value": "'''financial_loan''[Total Amount Received]'"
                                     }
                                   }
                                 ]
@@ -160,7 +160,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Total Loan Applications"
+                            "0": "Total Amount Received"
                           }
                         ]
                       }

@@ -1,39 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "a2fdc86f0259f4f3f992",
+  "name": "b90a86fef15fa3b4a750",
   "position": {
-    "x": 752,
-    "y": 224,
-    "z": 16000,
-    "height": 448,
-    "width": 480,
-    "tabOrder": 13000
+    "x": 20.19230769230769,
+    "y": 16,
+    "z": 1000,
+    "height": 48,
+    "width": 201.92307692307691,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "card",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "financial_loan"
-                    }
-                  },
-                  "Property": "emp_length"
-                }
-              },
-              "queryRef": "financial_loan.emp_length",
-              "nativeQueryRef": "Applicant Work Experience ",
-              "active": true,
-              "displayName": "Applicant Work Experience "
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -47,24 +27,7 @@
                 }
               },
               "queryRef": "financial_loan.Total Amount Received",
-              "nativeQueryRef": "Total Amount Received",
-              "displayName": "Total Amount Received"
-            }
-          ],
-          "fieldParameters": [
-            {
-              "parameterExpr": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Select"
-                    }
-                  },
-                  "Property": "Select"
-                }
-              },
-              "index": 0,
-              "length": 1
+              "nativeQueryRef": "Total Amount Received"
             }
           ]
         }
@@ -92,17 +55,52 @@
       "labels": [
         {
           "properties": {
-            "show": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
             },
-            "labelDisplayUnits": {
+            "labelPrecision": {
               "expr": {
                 "Literal": {
-                  "Value": "1000D"
+                  "Value": "1L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -111,5 +109,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "afe296bb41da0162314c"
 }

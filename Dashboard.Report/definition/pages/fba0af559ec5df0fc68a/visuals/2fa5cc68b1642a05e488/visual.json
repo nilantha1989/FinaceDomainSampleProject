@@ -60,12 +60,12 @@
                       "Entity": "financial_loan"
                     }
                   },
-                  "Property": "Total Loan Applications"
+                  "Property": "Total Amount Received"
                 }
               },
-              "queryRef": "financial_loan.Total Loan Applications",
-              "nativeQueryRef": "Total Loan Applications",
-              "displayName": "Total Loan Applications"
+              "queryRef": "financial_loan.Total Amount Received",
+              "nativeQueryRef": "Total Amount Received",
+              "displayName": "Total Amount Received"
             }
           ],
           "fieldParameters": [
@@ -111,14 +111,61 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "1000000D"
+                  "Value": "1000D"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Above'"
+                }
+              }
+            },
+            "optimizeLabelDisplay": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelContainerMaxWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "198D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "showMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "y2Axis": [
+        {
+          "properties": {
+            "secLabelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
                 }
               }
             }

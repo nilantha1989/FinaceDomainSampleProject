@@ -4,10 +4,10 @@
   "position": {
     "x": 208,
     "y": 512,
-    "z": 18001,
+    "z": 18000,
     "height": 160,
     "width": 480,
-    "tabOrder": 10009
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "shapeMap",
@@ -32,9 +32,6 @@
             }
           ]
         },
-        "Series": {
-          "projections": []
-        },
         "Value": {
           "projections": [
             {
@@ -45,12 +42,12 @@
                       "Entity": "financial_loan"
                     }
                   },
-                  "Property": "Total Loan Applications"
+                  "Property": "Total Amount Received"
                 }
               },
-              "queryRef": "financial_loan.Total Loan Applications",
-              "nativeQueryRef": "Total Loan Applications",
-              "displayName": "Total Loan Applications"
+              "queryRef": "financial_loan.Total Amount Received",
+              "nativeQueryRef": "Total Amount Received",
+              "displayName": "Total Amount Received"
             }
           ],
           "fieldParameters": [

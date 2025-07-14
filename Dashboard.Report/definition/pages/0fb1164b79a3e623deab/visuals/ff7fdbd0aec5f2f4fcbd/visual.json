@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
-  "name": "888eb5884ceb36921b55",
+  "name": "ff7fdbd0aec5f2f4fcbd",
   "position": {
     "x": 9,
-    "y": 332.99999999995521,
-    "z": 15000,
+    "y": 448,
+    "z": 9000,
     "height": 64,
     "width": 160,
-    "tabOrder": 13000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -23,11 +23,11 @@
                       "Entity": "financial_loan"
                     }
                   },
-                  "Property": "purpose"
+                  "Property": "address_state"
                 }
               },
-              "queryRef": "financial_loan.purpose",
-              "nativeQueryRef": "purpose",
+              "queryRef": "financial_loan.address_state",
+              "nativeQueryRef": "address_state",
               "active": true
             }
           ]
@@ -42,6 +42,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Dropdown'"
+                }
+              }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -67,7 +74,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Purpose'"
+                  "Value": "'Address State'"
                 }
               }
             },
@@ -110,49 +117,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "f",
-                    "Entity": "financial_loan",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "f"
-                                }
-                              },
-                              "Property": "purpose"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'home improvement'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
+          "properties": {}
         }
       ]
     },
