@@ -66,3 +66,7 @@ To modify the dashboard:
 <b>Troubleshooting</b>
 - Data connection errors: Verify your data source paths and credentials
 - Visual rendering issues: Check for filters that might be hiding data
+
+
+<a href="https://example.com](https://app.powerbi.com/view?r=eyJrIjoiYTYyMGQ3MjctOWE2OS00MWEzLWJkYjktZmU5MzI0M2I3N2EyIiwidCI6IjE2NzAxMjgxLTZmNTQtNDE4OC1iNTY0LTIyMDNkYjBkMzM5YiJ9">View report online</a>
+
