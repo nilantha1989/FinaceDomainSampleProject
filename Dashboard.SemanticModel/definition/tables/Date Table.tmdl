@@ -1,0 +1,29 @@
+table 'Date Table'
+	lineageTag: b31764a1-6c26-47e2-be56-d0a229f7f5d8
+
+	column Date
+		formatString: General Date
+		lineageTag: f86cd186-87d5-46eb-8b03-1a490a0f4825
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 51fc4d72-d55a-4080-9348-6d77a0a7cb40
+			defaultHierarchy: LocalDateTable_fab8dbd4-2f4e-4bb0-a4f1-4f61da1ad810.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = FORMAT('Date Table'[Date],"mmmm")
+		lineageTag: 76a57e8e-0a0c-442e-800e-9f65a957a2c3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Date Table' = calculated
+		mode: import
+		source = CALENDAR(MIN(financial_loan[issue_date]),MAX(financial_loan[issue_date]))
+
+	annotation PBI_Id = 061367ae80e342a280560bd9eddd96b5
+

@@ -1,0 +1,360 @@
+table financial_loan
+	lineageTag: 933d535a-9e94-4157-8e77-ca3c78900104
+
+	measure 'Total Loan Applications' = COUNT(financial_loan[id])
+		formatString: 0
+		lineageTag: 2cd1800f-1117-4bae-a084-fbf8bc5e1416
+
+	measure 'MTD Loan Applications' = CALCULATE(TOTALMTD([Total Loan Applications],'Date Table'[Date]))
+		formatString: 0
+		lineageTag: 9993c9f7-33b9-402e-b515-951aaa014e68
+
+	measure 'PMTD Loan Applications' = CALCULATE([Total Loan Applications],DATESMTD(DATEADD('Date Table'[Date],-1,MONTH)))
+		formatString: 0
+		lineageTag: ae71d825-6048-42b9-89b8-d517562e659c
+
+	measure 'MoM Loan Applications' = ([MTD Loan Applications]-[PMTD Loan Applications])/[PMTD Loan Applications]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d6f446d5-ae6d-432a-9124-cf2523c1eea2
+
+	measure 'Total Funded Amount' = SUM(financial_loan[loan_amount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b0d55b2f-a626-499b-a08d-8490efe891ec
+
+	measure 'MTD Funded Amount' = CALCULATE(TOTALMTD([Total Funded Amount],'Date Table'[Date]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d6c9fffc-d145-4944-a13a-6992b604f3c0
+
+	measure 'PMTD Total Funded Amount' = CALCULATE([Total Funded Amount],DATESMTD(DATEADD('Date Table'[Date],-1,MONTH)))
+		formatString: 0
+		lineageTag: b266969f-f884-4be7-90fe-bdee7ebf466d
+
+	measure 'MoM Total Funded Amount' = ([MTD Funded Amount]-[PMTD Total Funded Amount])/[PMTD Total Funded Amount]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2c1ef122-a125-4a77-a238-b6481f957bc6
+
+	measure 'Total Amount Received' = SUM(financial_loan[total_payment])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5749cd43-9aa5-48f3-a7f5-bb6274dd4f35
+
+	measure 'MTD Total Amount Received' = CALCULATE(TOTALMTD([Total Amount Received],'Date Table'[Date]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ae86106c-c6ca-4e2d-bee5-8b154277e00e
+
+	measure 'PMTD Total Recieved Amount' = CALCULATE([Total Amount Received],DATESMTD(DATEADD('Date Table'[Date],-1,MONTH)))
+		formatString: 0
+		lineageTag: 45cf31c5-fa01-41d3-8fdc-d3d87fd7fda8
+
+	measure 'MoM Total Amount Recieved' = ([MTD Total Amount Received]-[PMTD Total Recieved Amount])/[PMTD Total Recieved Amount]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 63940f06-b099-4d09-a86e-f7fb85d685c6
+
+	measure 'Avg Interest Rate' = AVERAGE(financial_loan[int_rate])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 475ad12d-4329-43bb-a3c3-873cdbe00231
+
+	measure 'MTD Avg Int Rate' = CALCULATE(TOTALMTD([Avg Interest Rate],'Date Table'[Date]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 45c5dc73-0bbe-4a3e-880e-d3aae336f48c
+
+	measure 'PMTD Avg Int Rate' = CALCULATE([Avg Interest Rate],DATESMTD(DATEADD('Date Table'[Date],-1,MONTH)))
+		lineageTag: e990aab0-f803-4145-a509-d238b073a65f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MoM Avg Int Rate' = ([MTD Avg Int Rate]-[PMTD Avg Int Rate])/[PMTD Avg Int Rate]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 82a2ae36-9712-4b0c-bf4e-3a4312a0f7bf
+
+	measure 'Profitable Loan Applications' = CALCULATE([Total Loan Applications],financial_loan[Proft vs Non-Profit]="Profitable")
+		formatString: 0
+		lineageTag: 74bbf962-12c1-4409-a3e6-cba4e53f2af1
+
+	measure 'Profitable Loan Funded Amount' = CALCULATE([Total Funded Amount],financial_loan[Proft vs Non-Profit]="Profitable")
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
+		lineageTag: 9d70d36c-9679-460b-b0a3-b86dbaf74b99
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Profitable Loan Received Amount' = CALCULATE([Total Amount Received],financial_loan[Proft vs Non-Profit]="Profitable")
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
+		lineageTag: c73b4c73-aaa9-46f6-8fd9-2eb040cf9055
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Non-Profitable Loan Applications' = CALCULATE([Total Loan Applications],financial_loan[Proft vs Non-Profit]="Non-Profitable")
+		formatString: 0
+		lineageTag: a496fee8-9825-42fc-a5e7-3fcc0515bc9d
+
+	measure 'Non-Profitable Loan Funded Amount' = CALCULATE([Total Funded Amount],financial_loan[Proft vs Non-Profit]="Non-Profitable")
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
+		lineageTag: fca09f5f-ea5f-46b9-9145-aab12e8d424a
+
+	measure 'Non-Profitable Loan Received Amount' = CALCULATE([Total Amount Received],financial_loan[Proft vs Non-Profit]="Non-Profitable")
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
+		lineageTag: 4fa78b05-6d16-446c-9f48-4e5f02e16f9a
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 96068721-4084-4a91-8ff7-6aa7848d762d
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_state
+		dataType: string
+		lineageTag: b67c0c2f-43b8-4462-adc4-a54bd6830794
+		summarizeBy: none
+		sourceColumn: address_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_type
+		dataType: string
+		lineageTag: 874c6f5d-d5dc-4e4c-bb38-4bd27e09e8b0
+		summarizeBy: none
+		sourceColumn: application_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column emp_length
+		dataType: string
+		lineageTag: f49a2e47-ca2b-4f39-9ded-932b99d0f246
+		summarizeBy: none
+		sourceColumn: emp_length
+
+		annotation SummarizationSetBy = Automatic
+
+	column emp_title
+		dataType: string
+		lineageTag: 5b0c9643-9cf2-4077-a5d5-9fe302b38981
+		summarizeBy: none
+		sourceColumn: emp_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column grade
+		dataType: string
+		lineageTag: 0bec4cc3-d40f-43cf-b96d-e4b33770739c
+		summarizeBy: none
+		sourceColumn: grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column home_ownership
+		dataType: string
+		lineageTag: 14e5cca5-2a88-4d24-a3de-a5e789214aa1
+		summarizeBy: none
+		sourceColumn: home_ownership
+
+		annotation SummarizationSetBy = Automatic
+
+	column issue_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a4b10693-8a62-43bb-a4d5-879d0803aea0
+		summarizeBy: none
+		sourceColumn: issue_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column last_credit_pull_date
+		dataType: string
+		lineageTag: 1ea8a5c4-d700-409f-b974-161e5358e20c
+		summarizeBy: none
+		sourceColumn: last_credit_pull_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_payment_date
+		dataType: string
+		lineageTag: c4167d94-2a29-48a6-9027-87a5fadcf38f
+		summarizeBy: none
+		sourceColumn: last_payment_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column loan_status
+		dataType: string
+		lineageTag: f9f7bd9b-b038-489f-a853-e0c33f29e57a
+		summarizeBy: none
+		sourceColumn: loan_status
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"financial_loan","TableItemName":"Proft vs Non-Profit","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column next_payment_date
+		dataType: string
+		lineageTag: e35ccec4-6762-42d7-88d2-5152aabc6285
+		summarizeBy: none
+		sourceColumn: next_payment_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column member_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c1ca8a5a-1490-404a-acd3-2dd7d507f242
+		summarizeBy: sum
+		sourceColumn: member_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column purpose
+		dataType: string
+		lineageTag: 9f6a0fc2-6c3f-4981-8c4c-3a6709ddf478
+		summarizeBy: none
+		sourceColumn: purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_grade
+		dataType: string
+		lineageTag: 708093d7-f61b-4f70-8d25-e23905e4f45b
+		summarizeBy: none
+		sourceColumn: sub_grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column term
+		dataType: string
+		lineageTag: 5090e1e4-d385-465f-b240-34b6ee26d5a0
+		summarizeBy: none
+		sourceColumn: term
+
+		annotation SummarizationSetBy = Automatic
+
+	column verification_status
+		dataType: string
+		lineageTag: df30fbc9-13ea-4559-9ee9-b157b449188e
+		summarizeBy: none
+		sourceColumn: verification_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column annual_income
+		dataType: double
+		lineageTag: 8c7247c2-31f3-41d1-bf97-09cc76698daf
+		summarizeBy: sum
+		sourceColumn: annual_income
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dti
+		dataType: double
+		lineageTag: 10d9d58a-2fee-4b5d-8320-bb8f80d5848f
+		summarizeBy: sum
+		sourceColumn: dti
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column installment
+		dataType: double
+		lineageTag: 6c6fc1d3-3698-4b67-8ac1-a5a74b1bb854
+		summarizeBy: sum
+		sourceColumn: installment
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column int_rate
+		dataType: double
+		lineageTag: d62460ee-2486-4354-b882-19c2258ec7c2
+		summarizeBy: sum
+		sourceColumn: int_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column loan_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 56299364-a306-4ce2-9baf-41654854fc98
+		summarizeBy: sum
+		sourceColumn: loan_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_acc
+		dataType: int64
+		formatString: 0
+		lineageTag: 95dd4dcf-097c-48f7-8ca3-ecd81a7fab68
+		summarizeBy: sum
+		sourceColumn: total_acc
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_payment
+		dataType: int64
+		formatString: 0
+		lineageTag: 18e9cbfe-562b-4d8a-a076-f6b412cfd53a
+		summarizeBy: sum
+		sourceColumn: total_payment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Proft vs Non-Profit' =
+			SWITCH(
+				TRUE,
+				ISBLANK('financial_loan'[loan_status]),
+				"(Blank)",
+				'financial_loan'[loan_status] IN {"Charged Off"},
+				"Non-Profitable",
+				'financial_loan'[loan_status] IN {"Current",
+					"Fully Paid"},
+				"Profitable",
+				'financial_loan'[loan_status]
+			)
+		lineageTag: 80886de5-853c-4092-8fbe-b4963ab2760f
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "financial_loan"
+				          }
+				        },
+				        "Property": "loan_status"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"f","Entity":"financial_loan"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"f"}},"Property":"loan_status"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"Non-Profitable","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"f"}},"Property":"loan_status"}}],"Values":[[{"Literal":{"Value":"'Charged Off'"}}]]}}},{"DisplayName":"Profitable","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"f"}},"Property":"loan_status"}}],"Values":[[{"Literal":{"Value":"'Current'"}}],[{"Literal":{"Value":"'Fully Paid'"}}]]}}}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition financial_loan = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Power BI\Projects\FinaceDomainSampleProject\FinaceDomainSampleProject\Data\financial_loan.csv"),[Delimiter=",", Columns=24, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", Int64.Type}, {"address_state", type text}, {"application_type", type text}, {"emp_length", type text}, {"emp_title", type text}, {"grade", type text}, {"home_ownership", type text}, {"issue_date", type text}, {"last_credit_pull_date", type text}, {"last_payment_date", type text}, {"loan_status", type text}, {"next_payment_date", type text}, {"member_id", Int64.Type}, {"purpose", type text}, {"sub_grade", type text}, {"term", type text}, {"verification_status", type text}, {"annual_income", type number}, {"dti", type number}, {"installment", type number}, {"int_rate", type number}, {"loan_amount", Int64.Type}, {"total_acc", Int64.Type}, {"total_payment", Int64.Type}}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Changed Type", "issue_date", Splitter.SplitTextByDelimiter("-", QuoteStyle.Csv), {"issue_date.1", "issue_date.2", "issue_date.3"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"issue_date.1", Int64.Type}, {"issue_date.2", Int64.Type}, {"issue_date.3", Int64.Type}}),
+				    #"Merged Columns" = Table.CombineColumns(Table.TransformColumnTypes(#"Changed Type1", {{"issue_date.3", type text}, {"issue_date.2", type text}, {"issue_date.1", type text}}, "en-CA"),{"issue_date.3", "issue_date.2", "issue_date.1"},Combiner.CombineTextByDelimiter("-", QuoteStyle.None),"issue_date"),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Merged Columns",{{"issue_date", type date}})
+				in
+				    #"Changed Type2"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

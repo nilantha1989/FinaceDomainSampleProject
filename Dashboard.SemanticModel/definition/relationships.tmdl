@@ -1,0 +1,9 @@
+relationship 51fc4d72-d55a-4080-9348-6d77a0a7cb40
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Date Table'.Date
+	toColumn: LocalDateTable_fab8dbd4-2f4e-4bb0-a4f1-4f61da1ad810.Date
+
+relationship 37dec45d-9c9e-4c62-4f53-dbcf9d56f8ea
+	fromColumn: financial_loan.issue_date
+	toColumn: 'Date Table'.Date
+
