@@ -65,6 +65,13 @@
                   "Value": "'WebUrl'"
                 }
               }
+            },
+            "webUrl": {
+              "expr": {
+                "Literal": {
+                  "Value": "'https://github.com/nilantha1989/FinaceDomainSampleProject'"
+                }
+              }
             }
           }
         }
