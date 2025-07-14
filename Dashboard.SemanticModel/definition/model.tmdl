@@ -18,6 +18,7 @@ ref table financial_loan
 ref table DateTableTemplate_f171ba1b-b8f4-40ae-99e2-2a9474b92e63
 ref table 'Date Table'
 ref table LocalDateTable_fab8dbd4-2f4e-4bb0-a4f1-4f61da1ad810
+ref table Select
 
 ref cultureInfo en-US
 

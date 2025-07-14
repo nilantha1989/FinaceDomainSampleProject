@@ -15,9 +15,17 @@ table 'Date Table'
 
 		annotation SummarizationSetBy = Automatic
 
-	column Month = FORMAT('Date Table'[Date],"mmmm")
+	column Month = FORMAT('Date Table'[Date],"mmm")
 		lineageTag: 76a57e8e-0a0c-442e-800e-9f65a957a2c3
 		summarizeBy: none
+		sortByColumn: 'Month number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month number' = MONTH('Date Table'[Date])
+		formatString: 0
+		lineageTag: fc5bbb22-d17f-494b-aa9c-308f27d44313
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

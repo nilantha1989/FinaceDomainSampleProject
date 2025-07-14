@@ -3,7 +3,7 @@
   "name": "2fa5cc68b1642a05e488",
   "position": {
     "x": 208,
-    "y": 240,
+    "y": 272,
     "z": 12000,
     "height": 192,
     "width": 480,
@@ -32,6 +32,24 @@
             }
           ]
         },
+        "Series": {
+          "projections": [],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Select"
+                    }
+                  },
+                  "Property": "Select"
+                }
+              },
+              "index": 0
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -46,7 +64,24 @@
                 }
               },
               "queryRef": "financial_loan.Total Loan Applications",
-              "nativeQueryRef": "Total Loan Applications"
+              "nativeQueryRef": "Total Loan Applications",
+              "displayName": "Total Loan Applications"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Select"
+                    }
+                  },
+                  "Property": "Select"
+                }
+              },
+              "index": 0,
+              "length": 1
             }
           ]
         }
@@ -55,20 +90,41 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "financial_loan"
+                    "Entity": "Date Table"
                   }
                 },
-                "Property": "Total Loan Applications"
+                "Property": "Month"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000000D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

@@ -1,0 +1,49 @@
+table Select
+	lineageTag: 2347731c-4494-40f5-9eff-2e26f96c140e
+
+	column Select
+		lineageTag: bd26b895-963e-4e15-9bbe-10655273876f
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Select Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Select Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Select Fields'
+		isHidden
+		lineageTag: ddc6812b-574c-4659-b0b6-a9071a8ecc24
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Select Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Select Order'
+		isHidden
+		formatString: 0
+		lineageTag: 343bef89-9f72-4120-b41f-cd79900b65e8
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Select = calculated
+		mode: import
+		source =
+				{
+				    ("Total Amount Received", NAMEOF('financial_loan'[Total Amount Received]), 0),
+				    ("Total Funded Amount", NAMEOF('financial_loan'[Total Funded Amount]), 1),
+				    ("Total Loan Applications", NAMEOF('financial_loan'[Total Loan Applications]), 2)
+				}
+
+	annotation PBI_Id = b6b50668c5164daf903558f698b5a8a6
+
