@@ -53,7 +53,7 @@ If prompted, update data source connections to point to your local data files</p
 - Total Amount Received
 - Total Funded Amount
 - etc..
-- 
+
 <b>Customization</b>
 
 To modify the dashboard:
